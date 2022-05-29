@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvPulse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_std"
+                android:text="@string/pulse"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartPulse"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_height"
+                android:layout_marginTop="@dimen/margin_std"
+                app:layout_constraintTop_toBottomOf="@id/tvPulse" />
+
+            <TextView
+                android:id="@+id/tvPressure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_std"
+                android:text="@string/pressure"
+                app:layout_constraintTop_toBottomOf="@id/chartPulse" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartPressure"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_height"
+                android:layout_marginTop="@dimen/margin_std"
+                app:layout_constraintTop_toBottomOf="@id/tvPressure" />
+
+            <TextView
+                android:id="@+id/tvTemperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_std"
+                android:text="@string/temperature"
+                app:layout_constraintTop_toBottomOf="@id/chartPressure" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartTemperature"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_height"
+                android:layout_marginTop="@dimen/margin_std"
+                app:layout_constraintTop_toBottomOf="@id/tvTemperature" />
+
+            <TextView
+                android:id="@+id/tvSleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_std"
+                android:text="@string/sleep_time"
+                app:layout_constraintTop_toBottomOf="@id/chartTemperature" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartSleep"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_height"
+                android:layout_marginTop="@dimen/margin_std"
+                app:layout_constraintTop_toBottomOf="@id/tvSleep" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

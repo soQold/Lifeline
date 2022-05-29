@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/default_activity.xml" value="0.17" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/diary_fragment.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/fill_fragment.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/login_activity.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/profile_fragment.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/sign_in_activity.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/sign_up_activity.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/sign_up_fragment.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/sign_up_parameters_fragment.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/sign_up_personal_fragment.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/sogn_up_personal_fragment.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/splash_activity.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/statistics_fragment.xml" value="0.2" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/user_activity_fragment.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/menu/default_menu.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

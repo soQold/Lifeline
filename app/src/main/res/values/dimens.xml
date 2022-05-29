@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    margins-->
+    <dimen name="margin_std">16dp</dimen>
+    <dimen name="margin_l">24dp</dimen>
+    <dimen name="margin_xl">32dp</dimen>
+    <dimen name="margin_s">12dp</dimen>
+    <dimen name="margin_xs">8dp</dimen>
+    <dimen name="margin_xxs">4dp</dimen>
+    <dimen name="progress_h">4dp</dimen>
+
+    <dimen name="chart_height">200dp</dimen>
+</resources>

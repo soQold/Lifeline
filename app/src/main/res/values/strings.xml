@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Lifeline</string>
+
+<!--    simple strings-->
+    <string name="sign_in">Войти в аккаунт</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="email_or_username">Почта или логин</string>
+    <string name="password">Пароль</string>
+    <string name="email">Почта</string>
+    <string name="username">Логин</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="next">Далее</string>
+    <string name="sign_up_progress">Шаг %1$d из %2$d</string>
+    <string name="full_name">ФИО</string>
+    <string name="address">Адрес</string>
+    <string name="policy">Номер медицинского полиса</string>
+    <string name="birth_date">Дата рождения</string>
+    <string name="height">Рост</string>
+    <string name="weight">Вес</string>
+    <string name="gender">Пол</string>
+    <string name="male">Мужской</string>
+    <string name="female">Женский</string>
+    <string name="fill_data">Внести данные</string>
+    <string name="statistics">Статистика</string>
+    <string name="user_activity">Ваша активность</string>
+    <string name="pulse">Пульс</string>
+    <string name="temperature">Температура</string>
+    <string name="pressure">Давление</string>
+    <string name="sleep_time">Время сна</string>
+    <string name="confirm">Подтвердить</string>
+
+<!--    status strings-->
+    <string name="status_username_invalid">Некорректная почта или логин</string>
+    <string name="status_password_invalid">Некорректный пароль</string>
+    <string name="status_response_error">Ошибка при выполнении запроса</string>
+    <string name="status_token_error">Ошибка при получении ключа авторизации</string>
+<!--    examples-->
+    <string name="email_example">example@gmail.com</string>
+    <string name="password_example">password123</string>
+    <string name="username_example">login</string>
+    <string name="full_name_example">Иванов Иван Иванович</string>
+    <string name="address_example">Г.Краснодар, Ул. Ставропольская, д. 149</string>
+    <string name="policy_example">1234 5678 9098 7654</string>
+    <string name="birth_date_example">18/05/2000</string>
+    <string name="height_example">193</string>
+    <string name="weight_example">76.5</string>
+    <string name="pulse_example">123</string>
+    <string name="temperature_example">36.6</string>
+    <string name="pressure_example">60/120</string>
+    <string name="sleep_time_example">8ч. 30мин.</string>
+</resources>

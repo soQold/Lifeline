@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.lifeline.presentation.ui.sign_up.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            android:layout_marginVertical="@dimen/margin_std"
+            android:text="@{@string/sign_up_progress(model.step, model.maxSteps)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/sign_up_progress"/>
+
+        <LinearLayout
+            android:id="@+id/llProgress"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/progress_h"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvProgress"
+            tools:background="@color/darkGrey" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            android:layout_marginVertical="@dimen/margin_std"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llProgress"
+            tools:background="@color/darkGrey"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

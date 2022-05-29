@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="model"
+            type="com.example.lifeline.presentation.ui.fill.FillViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLayoutPulse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_std"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPulse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/pulse"
+                android:inputType="numberSigned"
+                tools:text="@string/pulse_example"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLayoutPressure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_std"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            app:layout_constraintTop_toBottomOf="@id/etLayoutPulse">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPressure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/pressure"
+                android:inputType="numberSigned"
+                tools:text="@string/pressure_example"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLayoutTemperature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_std"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            app:layout_constraintTop_toBottomOf="@id/etLayoutPressure">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTemperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/temperature"
+                android:inputType="numberDecimal"
+                tools:text="@string/temperature_example"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLayoutSleep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_std"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            app:layout_constraintTop_toBottomOf="@id/etLayoutTemperature">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/sleep_time"
+                android:inputType="numberSigned"
+                tools:text="@string/sleep_time_example"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            android:layout_marginBottom="@dimen/margin_l"
+            android:text="@string/confirm"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
