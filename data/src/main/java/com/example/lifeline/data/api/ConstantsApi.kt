@@ -11,30 +11,31 @@ import com.example.lifeline.data.entities.response.constants.TemperatureResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.PUT
 
 interface ConstantsApi {
     @GET("pulse")
-    fun getPulse(): Response<PulseResponse>
+    fun getPulse(@Header("Authorization") token: String): Response<PulseResponse>
 
     @PUT("pulse")
-    fun savePulse(@Body request: PulseRequest):Response<Void>
+    fun savePulse(@Header("Authorization") token: String, @Body request: PulseRequest):Response<Void>
 
     @GET("pressure")
-    fun getPressure(): Response<PressureResponse>
+    fun getPressure(@Header("Authorization") token: String): Response<PressureResponse>
 
     @PUT("pressure")
-    fun savePressure(@Body request: PressureRequest):Response<Void>
+    fun savePressure(@Header("Authorization") token: String, @Body request: PressureRequest):Response<Void>
 
     @GET("temperature")
-    fun getTemperature(): Response<TemperatureResponse>
+    fun getTemperature(@Header("Authorization") token: String): Response<TemperatureResponse>
 
     @PUT("temperature")
-    fun saveTemperature(@Body request: TemperatureRequest):Response<Void>
+    fun saveTemperature(@Header("Authorization") token: String, @Body request: TemperatureRequest):Response<Void>
 
     @GET("sleep")
-    fun getSleep(): Response<SleepResponse>
+    fun getSleep(@Header("Authorization") token: String): Response<SleepResponse>
 
     @PUT("sleep")
-    fun saveSleep(@Body request: SleepRequest):Response<Void>
+    fun saveSleep(@Header("Authorization") token: String, @Body request: SleepRequest):Response<Void>
 }

@@ -20,12 +20,15 @@ class SignInActivity: BaseActivity() {
         binding.lifecycleOwner = this
         binding.model = viewModel
         binding.btnSignIn.setOnClickListener {
-            //test account - login:oleg1223, password: test
             viewModel.signIn(
                 binding.etUsername.text.toString(),
                 binding.etPassword.text.toString()
             )
         }
+
+        //FIXME remove it
+        binding.etUsername.setText("oleg1223")
+        binding.etPassword.setText("test")
 
         viewModel.authResult.observe(this){
             when(it){

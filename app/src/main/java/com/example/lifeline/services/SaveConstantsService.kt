@@ -14,11 +14,17 @@ class SaveConstantsService(
     private val saveSleepUseCase: SaveSleepUseCase,
     private val saveTemperatureUseCase: SaveTemperatureUseCase
 ) {
-    suspend fun savePulse(userId: Long, date: String, value: Int): LifelineResult<Boolean> {
-        return withContext(Dispatchers.IO) { savePulseUseCase.invoke(userId, date, value) }
+    suspend fun savePulse(
+        token: String,
+        userId: Long,
+        date: String,
+        value: Int
+    ): LifelineResult<Boolean> {
+        return withContext(Dispatchers.IO) { savePulseUseCase.invoke(token, userId, date, value) }
     }
 
     suspend fun savePressure(
+        token: String,
         userId: Long,
         date: String,
         valueSys: Int,
@@ -26,6 +32,7 @@ class SaveConstantsService(
     ): LifelineResult<Boolean> {
         return withContext(Dispatchers.IO) {
             savePressureUseCase.invoke(
+                token,
                 userId,
                 date,
                 valueSys,
@@ -34,15 +41,25 @@ class SaveConstantsService(
         }
     }
 
-    suspend fun saveSleep(userId: Long, date: String, value: Int): LifelineResult<Boolean> {
-        return withContext(Dispatchers.IO) { saveSleepUseCase.invoke(userId, date, value) }
+    suspend fun saveSleep(
+        token: String, userId: Long, date: String, value: Int
+    ): LifelineResult<Boolean> {
+        return withContext(Dispatchers.IO) { saveSleepUseCase.invoke(token, userId, date, value) }
     }
 
     suspend fun saveTemperature(
+        token: String,
         userId: Long,
         date: String,
         value: Double
     ): LifelineResult<Boolean> {
-        return withContext(Dispatchers.IO) { saveTemperatureUseCase.invoke(userId, date, value) }
+        return withContext(Dispatchers.IO) {
+            saveTemperatureUseCase.invoke(
+                token,
+                userId,
+                date,
+                value
+            )
+        }
     }
 }

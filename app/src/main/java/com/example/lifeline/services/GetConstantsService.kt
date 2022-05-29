@@ -18,19 +18,19 @@ class GetConstantsService(
     private val getSleepUseCase: GetSleepUseCase,
     private val getTemperatureUseCase: GetTemperatureUseCase
 ) {
-    suspend fun getPulse():LifelineResult<List<Pulse>>{
-        return withContext(Dispatchers.IO) {getPulseUseCase.invoke()}
+    suspend fun getPulse(token: String, ):LifelineResult<List<Pulse>>{
+        return withContext(Dispatchers.IO) {getPulseUseCase.invoke(token)}
     }
 
-    suspend fun getPressure(): LifelineResult<List<Pressure>>{
-        return withContext(Dispatchers.IO) {getPressureUseCase.invoke()}
+    suspend fun getPressure(token: String, ): LifelineResult<List<Pressure>>{
+        return withContext(Dispatchers.IO) {getPressureUseCase.invoke(token)}
     }
 
-    suspend fun getSleep(): LifelineResult<List<Sleep>>{
-        return withContext(Dispatchers.IO) {getSleepUseCase.invoke()}
+    suspend fun getSleep(token: String, ): LifelineResult<List<Sleep>>{
+        return withContext(Dispatchers.IO) {getSleepUseCase.invoke(token)}
     }
 
-    suspend fun getTemperature(): LifelineResult<List<Temperature>>{
-        return withContext(Dispatchers.IO) {getTemperatureUseCase.invoke()}
+    suspend fun getTemperature(token: String, ): LifelineResult<List<Temperature>>{
+        return withContext(Dispatchers.IO) {getTemperatureUseCase.invoke(token)}
     }
 }

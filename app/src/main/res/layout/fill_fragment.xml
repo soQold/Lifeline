@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="model"
             type="com.example.lifeline.presentation.ui.fill.FillViewModel" />
@@ -27,26 +29,59 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/pulse"
                 android:inputType="numberSigned"
-                tools:text="@string/pulse_example"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                tools:text="@string/pulse_example" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etLayoutPressure"
-            android:layout_width="match_parent"
+            android:id="@+id/etLayoutPressureSys"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_std"
             android:layout_marginHorizontal="@dimen/margin_std"
+            app:layout_constraintEnd_toStartOf="@id/tvSlash"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etLayoutPulse">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPressure"
+                android:id="@+id/etPressureSys"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/pressure"
+                android:hint="@string/pressureSys"
                 android:inputType="numberSigned"
-                tools:text="@string/pressure_example"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                tools:text="@string/sys_pressure_example" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvSlash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            app:layout_constraintBottom_toBottomOf="@id/etLayoutPressureSys"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etLayoutPressureSys"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLayoutPressureDia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_std"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvSlash"
+            app:layout_constraintTop_toBottomOf="@id/etLayoutPulse">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPressureDia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/pressureDia"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                tools:text="@string/dia_pressure_example" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_std"
             android:layout_marginHorizontal="@dimen/margin_std"
-            app:layout_constraintTop_toBottomOf="@id/etLayoutPressure">
+            app:layout_constraintTop_toBottomOf="@id/etLayoutPressureSys">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etTemperature"
@@ -63,8 +98,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/temperature"
                 android:inputType="numberDecimal"
-                tools:text="@string/temperature_example"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                tools:text="@string/temperature_example" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -81,8 +116,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/sleep_time"
                 android:inputType="numberSigned"
-                tools:text="@string/sleep_time_example"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                tools:text="@string/sleep_time_example" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

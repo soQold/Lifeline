@@ -21,7 +21,7 @@ class StatisticsFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.profile_fragment, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.statistics_fragment, container, false)
         binding.run {
             lifecycleOwner = viewLifecycleOwner
             viewModel.setupChart(binding.chartPressure, ChartData(title = resources.getString(R.string.pressure), DataConstants.emptyString))

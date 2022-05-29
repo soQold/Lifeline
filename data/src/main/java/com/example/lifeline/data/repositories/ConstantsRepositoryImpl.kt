@@ -23,10 +23,10 @@ class ConstantsRepositoryImpl(
     private val mapper: ConstantsApiMapper
 ) : ConstantsRepository {
     private val api = networkModule.createConstantsApi(DataConstants.baseConstantsUrl)
-    override suspend  fun getPulse(): LifelineResult<List<Pulse>> {
+    override suspend  fun getPulse(token: String): LifelineResult<List<Pulse>> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getPulse()
+                val response = api.getPulse(token)
 
                 if (response.isSuccessful)
                     LifelineResult.Success(mapper.pulseRemoteToLocalList(response.body()!!))
@@ -40,13 +40,14 @@ class ConstantsRepositoryImpl(
     }
 
     override suspend fun savePulse(
+        token: String,
         userId: Long,
         date: String,
         value: Int
     ): LifelineResult<Boolean> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.savePulse(PulseRequest(userId, date, value))
+                val response = api.savePulse(token, PulseRequest(userId, date, value))
 
                 if (response.isSuccessful)
                     LifelineResult.Success(true)
@@ -59,10 +60,10 @@ class ConstantsRepositoryImpl(
         }
     }
 
-    override suspend  fun getPressure(): LifelineResult<List<Pressure>> {
+    override suspend  fun getPressure(token: String): LifelineResult<List<Pressure>> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getPressure()
+                val response = api.getPressure(token)
 
                 if (response.isSuccessful)
                     LifelineResult.Success(mapper.pressureRemoteToLocalList(response.body()!!))
@@ -76,6 +77,7 @@ class ConstantsRepositoryImpl(
     }
 
     override suspend fun savePressure(
+        token: String,
         userId: Long,
         date: String,
         valueSys: Int,
@@ -83,7 +85,7 @@ class ConstantsRepositoryImpl(
     ): LifelineResult<Boolean> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.savePressure(PressureRequest(userId, date, valueSys, valueDia))
+                val response = api.savePressure(token, PressureRequest(userId, date, valueSys, valueDia))
 
                 if (response.isSuccessful)
                     LifelineResult.Success(true)
@@ -96,10 +98,10 @@ class ConstantsRepositoryImpl(
         }
     }
 
-    override suspend  fun getTemperature(): LifelineResult<List<Temperature>> {
+    override suspend  fun getTemperature(token: String): LifelineResult<List<Temperature>> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getTemperature()
+                val response = api.getTemperature(token)
 
                 if (response.isSuccessful)
                     LifelineResult.Success(mapper.temperatureRemoteToLocalList(response.body()!!))
@@ -113,13 +115,14 @@ class ConstantsRepositoryImpl(
     }
 
     override suspend fun saveTemperature(
+        token: String,
         userId: Long,
         date: String,
         value: Double
     ): LifelineResult<Boolean> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.saveTemperature(TemperatureRequest(userId, date, value))
+                val response = api.saveTemperature(token, TemperatureRequest(userId, date, value))
 
                 if (response.isSuccessful)
                     LifelineResult.Success(true)
@@ -132,10 +135,10 @@ class ConstantsRepositoryImpl(
         }
     }
 
-    override suspend fun getSleep(): LifelineResult<List<Sleep>> {
+    override suspend fun getSleep(token: String): LifelineResult<List<Sleep>> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getSleep()
+                val response = api.getSleep(token)
 
                 if (response.isSuccessful)
                     LifelineResult.Success(mapper.sleepRemoteToLocalList(response.body()!!))
@@ -149,13 +152,14 @@ class ConstantsRepositoryImpl(
     }
 
     override suspend fun saveSleep(
+        token: String,
         userId: Long,
         date: String,
         value: Int
     ): LifelineResult<Boolean> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.saveSleep(SleepRequest(userId, date, value))
+                val response = api.saveSleep(token, SleepRequest(userId, date, value))
 
                 if (response.isSuccessful)
                     LifelineResult.Success(true)

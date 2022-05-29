@@ -12,11 +12,13 @@ import com.example.lifeline.domain.entities.constants.Temperature
 import com.example.lifeline.entities.ChartData
 import com.example.lifeline.services.ChartService
 import com.example.lifeline.services.GetConstantsService
+import com.example.lifeline.services.TokenService
 import com.github.mikephil.charting.charts.LineChart
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class StatisticsViewModel(private val getConstantsService: GetConstantsService, private val chartService: ChartService) : ViewModel() {
+class StatisticsViewModel(private val getConstantsService: GetConstantsService, private val chartService: ChartService, tokenService: TokenService) : ViewModel() {
+    private val token = tokenService.getAuthToken()
     private val _pulseLiveData = MutableLiveData<List<Pulse>>(listOf())
     val pulseLiveData: LiveData<List<Pulse>> = _pulseLiveData
 
@@ -30,11 +32,12 @@ class StatisticsViewModel(private val getConstantsService: GetConstantsService, 
     val sleepLiveData: LiveData<List<Sleep>> = _sleepLiveData
 
     fun getData(){
+        if(token != null)
         viewModelScope.launch {
-            val pulse = getConstantsService.getPulse()
-            val pressure = getConstantsService.getPressure()
-            val temperature = getConstantsService.getTemperature()
-            val sleep = getConstantsService.getSleep()
+            val pulse = getConstantsService.getPulse(token)
+            val pressure = getConstantsService.getPressure(token)
+            val temperature = getConstantsService.getTemperature(token)
+            val sleep = getConstantsService.getSleep(token)
 
             if(pulse is LifelineResult.Success){
                 Timber.i("Pulse loaded: ${pulse.data.size}")

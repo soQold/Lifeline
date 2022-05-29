@@ -26,6 +26,8 @@
     <string name="pulse">Пульс</string>
     <string name="temperature">Температура</string>
     <string name="pressure">Давление</string>
+    <string name="pressureSys">Сис. Давление</string>
+    <string name="pressureDia">Диа. Давление</string>
     <string name="sleep_time">Время сна</string>
     <string name="confirm">Подтвердить</string>
 
@@ -34,6 +36,11 @@
     <string name="status_password_invalid">Некорректный пароль</string>
     <string name="status_response_error">Ошибка при выполнении запроса</string>
     <string name="status_token_error">Ошибка при получении ключа авторизации</string>
+
+<!--    value errors-->
+    <string name="value_error_pulse">Значение должно состоять только из цифр и не превышать 300</string>
+    <string name="value_error_pressure_sys">Значение должно состоять только из цифр и не превышать 300</string>
+    <string name="value_error_pressure_dia">Значение должно состоять только из цифр и не превышать 300</string>
 <!--    examples-->
     <string name="email_example">example@gmail.com</string>
     <string name="password_example">password123</string>
@@ -46,6 +53,8 @@
     <string name="weight_example">76.5</string>
     <string name="pulse_example">123</string>
     <string name="temperature_example">36.6</string>
-    <string name="pressure_example">60/120</string>
+    <string name="full_pressure_example">60/120</string>
+    <string name="sys_pressure_example">60</string>
+    <string name="dia_pressure_example">120</string>
     <string name="sleep_time_example">8ч. 30мин.</string>
 </resources>

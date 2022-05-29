@@ -6,6 +6,7 @@ import timber.log.Timber
 class TokenService(private val sharedPref: SharedPreferences) {
     private val authTokenKey = "AUTH"
     private val refreshTokenKey = "REFRESH"
+    private val tokenStart = "Bearer "
 
     fun getAuthToken(): String? {
         return sharedPref.getString(authTokenKey, null)
@@ -13,7 +14,7 @@ class TokenService(private val sharedPref: SharedPreferences) {
 
     fun setAuthToken(token: String) {
         Timber.i("Setting new auth token: $token")
-        sharedPref.edit().putString(authTokenKey, token).apply()
+        sharedPref.edit().putString(authTokenKey, tokenStart+token).apply()
     }
 
     fun getRefreshToken(): String? {

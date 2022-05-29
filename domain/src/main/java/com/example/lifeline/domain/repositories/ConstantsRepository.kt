@@ -7,19 +7,19 @@ import com.example.lifeline.domain.entities.constants.Sleep
 import com.example.lifeline.domain.entities.constants.Temperature
 
 interface ConstantsRepository {
-    suspend fun getPulse(): LifelineResult<List<Pulse>>
+    suspend fun getPulse(token: String): LifelineResult<List<Pulse>>
 
-    suspend fun savePulse(userId: Long, date: String, value: Int): LifelineResult<Boolean>
+    suspend fun savePulse(token: String, userId: Long, date: String, value: Int): LifelineResult<Boolean>
 
-    suspend fun getPressure(): LifelineResult<List<Pressure>>
+    suspend fun getPressure(token: String): LifelineResult<List<Pressure>>
 
-    suspend fun savePressure(userId: Long, date: String, valueSys: Int, valueDia: Int): LifelineResult<Boolean>
+    suspend fun savePressure(token: String, userId: Long, date: String, valueSys: Int, valueDia: Int): LifelineResult<Boolean>
 
-    suspend fun getTemperature(): LifelineResult<List<Temperature>>
+    suspend fun getTemperature(token: String): LifelineResult<List<Temperature>>
 
-    suspend fun saveTemperature(userId: Long, date: String, value: Double): LifelineResult<Boolean>
+    suspend fun saveTemperature(token: String, userId: Long, date: String, value: Double): LifelineResult<Boolean>
 
-    suspend fun getSleep(): LifelineResult<List<Sleep>>
+    suspend fun getSleep(token: String): LifelineResult<List<Sleep>>
 
-    suspend fun saveSleep(userId: Long, date: String, value: Int): LifelineResult<Boolean>
+    suspend fun saveSleep(token: String, userId: Long, date: String, value: Int): LifelineResult<Boolean>
 }
