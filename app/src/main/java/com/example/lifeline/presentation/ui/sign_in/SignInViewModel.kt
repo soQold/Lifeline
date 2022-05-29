@@ -48,7 +48,7 @@ class SignInViewModel(
                         _authResult.postValue(SignInResults.TOKEN_ERROR)
                     }
                     else {
-                        Timber.i("User logged in: ${result.data}")
+                        Timber.i("User logged in: ${result.data} with token: ${result.token}")
                         currentUserService.setUser(result.data)
                         tokenService.setAuthToken(result.token!!)
                         _authResult.postValue(SignInResults.SUCCESS)

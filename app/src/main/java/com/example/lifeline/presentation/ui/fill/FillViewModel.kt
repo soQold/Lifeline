@@ -8,6 +8,7 @@ import com.example.lifeline.services.SaveConstantsService
 import com.example.lifeline.services.TokenService
 import com.example.lifeline.utils.StringTransformer
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.util.*
 
 class FillViewModel(
@@ -23,6 +24,7 @@ class FillViewModel(
     val sleepLiveData = MutableLiveData("")
 
     fun saveData() {
+        Timber.i("Saving data with token: $token")
         if (token != null) {
             savePressure()
             savePulse()
@@ -34,6 +36,7 @@ class FillViewModel(
 
     private fun savePulse() {
         viewModelScope.launch {
+            Timber.i("Saving pulse: ${pulseLiveData.value}")
             val calendar = Calendar.getInstance()
             val pulse = StringTransformer.transformPulse(pulseLiveData.value!!) ?: return@launch
             saveConstantsService.savePulse(
@@ -47,6 +50,7 @@ class FillViewModel(
 
     private fun savePressure() {
         viewModelScope.launch {
+            Timber.i("Saving pressure: ${pressureSysLiveData.value}/${pressureDiaLiveData.value}")
             val calendar = Calendar.getInstance()
             val pressure =
                 StringTransformer.transformPressure(pressureSysLiveData.value!!, pressureDiaLiveData.value!!) ?: return@launch
@@ -62,6 +66,7 @@ class FillViewModel(
 
     private fun saveTemperature() {
         viewModelScope.launch {
+            Timber.i("Saving temperature: ${temperatureLiveData.value}")
             val calendar = Calendar.getInstance()
             val temperature =
                 StringTransformer.transformTemperature(temperatureLiveData.value!!) ?: return@launch
@@ -76,6 +81,7 @@ class FillViewModel(
 
     private fun saveSleep() {
         viewModelScope.launch {
+            Timber.i("Saving sleep: ${sleepLiveData.value}")
             val calendar = Calendar.getInstance()
             val sleep = StringTransformer.transformSleep(sleepLiveData.value!!) ?: return@launch
             saveConstantsService.saveSleep(
