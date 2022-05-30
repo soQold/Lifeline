@@ -46,7 +46,7 @@ class LifelineApplication : Application() {
         viewModel { SignInViewModel(get(), get(), get()) }
         viewModel { SignUpViewModel(get(), get(), get()) }
         viewModel { FillViewModel(get(), get(), get()) }
-        viewModel { StatisticsViewModel(get(), get(), get())}
+        viewModel { StatisticsViewModel(get(), get(), get(), get())}
 
         // API
         single { NetworkModule() }

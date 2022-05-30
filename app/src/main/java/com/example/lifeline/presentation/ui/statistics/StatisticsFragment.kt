@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.lifeline.R
-import com.example.lifeline.data.utils.DataConstants
 import com.example.lifeline.databinding.StatisticsFragmentBinding
 import com.example.lifeline.entities.ChartData
 import com.example.lifeline.presentation.BaseFragment
+import com.example.lifeline.utils.ChartDateFormatter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class StatisticsFragment : BaseFragment() {
@@ -24,9 +24,46 @@ class StatisticsFragment : BaseFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.statistics_fragment, container, false)
         binding.run {
             lifecycleOwner = viewLifecycleOwner
-            viewModel.setupChart(binding.chartPressure, ChartData(title = resources.getString(R.string.pressure), DataConstants.emptyString))
+            viewModel.setupChart(
+                binding.chartPressure,
+                ChartData(
+                    title = getString(R.string.pressure),
+                    lineTitle = getString(R.string.pressureSys),
+                    secondLineTitle = getString(R.string.pressureDia)
+                )
+            )
+            viewModel.setupChart(
+                binding.chartPulse,
+                ChartData(title = getString(R.string.pulse), lineTitle = getString(R.string.pulse))
+            )
 
-            viewModel.getData()
+//            viewModel.getData()
+            //TEST ONLY
+            viewModel.mockData()
+
+            viewModel.pressureLiveData.observe(viewLifecycleOwner){
+                viewModel.setupChart(
+                    chartPressure,
+                    ChartData(
+                        title = getString(R.string.pressure),
+                        lineTitle = getString(R.string.pressureSys),
+                        secondLineTitle = getString(R.string.pressureDia),
+                        valueFormatterX =  ChartDateFormatter(),
+                        values = it
+                    )
+                )
+            }
+            viewModel.pulseLiveData.observe(viewLifecycleOwner){
+                viewModel.setupChart(
+                    chartPulse,
+                    ChartData(
+                        title = getString(R.string.pulse),
+                        lineTitle = getString(R.string.pulse),
+                        valueFormatterX =  ChartDateFormatter(),
+                        values = it
+                    )
+                )
+            }
         }
         return binding.root
     }

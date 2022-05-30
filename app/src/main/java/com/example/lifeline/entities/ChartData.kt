@@ -13,19 +13,20 @@ import com.github.mikephil.charting.utils.ColorTemplate
 data class ChartData(
     // Text info
     val title: String? = null,
-    val lineTitle: String,
+    val lineTitle: String? = null,
     val secondLineTitle: String? = null,
     val chartDescription: String? = null,
 
     // Chart settings
     val isTouchEnabled: Boolean = true,
     val scrollSpeed: Float = 0.9f,
+    val isDragEnabled: Boolean = true,
     val isXScaleEnabled: Boolean = false,
     val isYScaleEnabled: Boolean = false,
     val isGridEnabled: Boolean = false,
     val isHighlightPerDragEnabled: Boolean = false,
     val isPinchZoom: Boolean = true,
-    val backgroundColor: Int = Color.BLUE,
+    val backgroundColor: Int = Color.WHITE,
     val xAnimateSpeed: Int = 1500,
 
     // XAxis settings
@@ -44,7 +45,7 @@ data class ChartData(
     val axisDependency: YAxis.AxisDependency = YAxis.AxisDependency.LEFT,
     val colorSet: Int = ColorTemplate.PASTEL_COLORS.first(),
     val textColorSet: Int = Color.BLUE,
-    val textSizeSet: Float = 10f,
+    val textSizeSet: Float = 12f,
 
     // Data
     val values: List<BioConstant>? = null
