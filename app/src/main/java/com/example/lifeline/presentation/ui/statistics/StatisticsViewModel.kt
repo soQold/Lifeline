@@ -40,15 +40,15 @@ class StatisticsViewModel(
     val sleepLiveData: LiveData<List<Sleep>> = _sleepLiveData
 
     fun getData() {
-        if (token != null) {
+        if (token != null && currentUserService.currentUser.value != null && currentUserService.currentUser.value!!.id != null) {
             viewModelScope.launch {
-                val pulse = getConstantsService.getPulse(token)
-                val pressure = getConstantsService.getPressure(token)
-                val temperature = getConstantsService.getTemperature(token)
-                val sleep = getConstantsService.getSleep(token)
+                val pulse = getConstantsService.getPulse(token, currentUserService.currentUser.value!!.id!!)
+                val pressure = getConstantsService.getPressure(token, currentUserService.currentUser.value!!.id!!)
+                val temperature = getConstantsService.getTemperature(token, currentUserService.currentUser.value!!.id!!)
+                val sleep = getConstantsService.getSleep(token, currentUserService.currentUser.value!!.id!!)
 
                 if (pulse is LifelineResult.Success) {
-                    Timber.i("Pulse loaded: ${pulse.data.size}")
+                    Timber.i("Pulse loaded: size=${pulse.data.size}, data:\n ${pulse.data}")
                     _pulseLiveData.postValue(pulse.data!!)
                 } else if (pulse is LifelineResult.Error) {
                     Timber.e("Exception at pulse response: ${pulse.exception.message}")

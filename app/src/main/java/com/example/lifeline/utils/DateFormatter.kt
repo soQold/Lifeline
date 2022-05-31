@@ -8,7 +8,7 @@ import java.util.*
 class DateFormatter {
     companion object {
         @SuppressLint("SimpleDateFormat")
-        private val formatter = SimpleDateFormat("d.M.yy HH:mm")
+        private val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
 
         fun format(value: Calendar): String {
             return formatter.format(value.time)

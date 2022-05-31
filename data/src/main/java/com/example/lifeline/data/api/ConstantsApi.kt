@@ -9,33 +9,30 @@ import com.example.lifeline.data.entities.response.constants.PulseResponse
 import com.example.lifeline.data.entities.response.constants.SleepResponse
 import com.example.lifeline.data.entities.response.constants.TemperatureResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.PUT
+import retrofit2.http.*
 
 interface ConstantsApi {
-    @GET("pulse")
-    fun getPulse(@Header("Authorization") token: String): Response<PulseResponse>
+    @GET("pulse/{id}")
+    suspend fun getPulse(@Header("Authorization") token: String, @Path("id") userId: Long): Response<List<PulseResponse>>
 
-    @PUT("pulse")
-    fun savePulse(@Header("Authorization") token: String, @Body request: PulseRequest):Response<Void>
+    @POST("pulse")
+    suspend fun savePulse(@Header("Authorization") token: String, @Body request: PulseRequest):Response<Void>
 
-    @GET("pressure")
-    fun getPressure(@Header("Authorization") token: String): Response<PressureResponse>
+    @GET("pressure/{id}")
+    suspend fun getPressure(@Header("Authorization") token: String, @Path("id") userId: Long): Response<List<PressureResponse>>
 
     @PUT("pressure")
-    fun savePressure(@Header("Authorization") token: String, @Body request: PressureRequest):Response<Void>
+    suspend fun savePressure(@Header("Authorization") token: String, @Body request: PressureRequest):Response<Void>
 
-    @GET("temperature")
-    fun getTemperature(@Header("Authorization") token: String): Response<TemperatureResponse>
+    @GET("temperature/{id}")
+    suspend fun getTemperature(@Header("Authorization") token: String, @Path("id") userId: Long): Response<List<TemperatureResponse>>
 
     @PUT("temperature")
-    fun saveTemperature(@Header("Authorization") token: String, @Body request: TemperatureRequest):Response<Void>
+    suspend fun saveTemperature(@Header("Authorization") token: String, @Body request: TemperatureRequest):Response<Void>
 
-    @GET("sleep")
-    fun getSleep(@Header("Authorization") token: String): Response<SleepResponse>
+    @GET("sleep/{id}")
+    suspend fun getSleep(@Header("Authorization") token: String, @Path("id") userId: Long): Response<List<SleepResponse>>
 
     @PUT("sleep")
-    fun saveSleep(@Header("Authorization") token: String, @Body request: SleepRequest):Response<Void>
+    suspend fun saveSleep(@Header("Authorization") token: String, @Body request: SleepRequest):Response<Void>
 }

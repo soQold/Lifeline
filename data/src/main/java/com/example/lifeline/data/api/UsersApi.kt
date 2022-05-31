@@ -11,14 +11,14 @@ import retrofit2.http.PUT
 
 interface UsersApi {
     @PUT("personal")
-    fun savePersonal(@Body request: SavePersonalRequest): Response<PersonalResponse>
+    suspend fun savePersonal(@Body request: SavePersonalRequest): Response<PersonalResponse>
 
     @GET("personal")
-    fun getPersonal(): Response<PersonalResponse>
+    suspend fun getPersonal(): Response<PersonalResponse>
 
     @PUT("parameters")
-    fun saveParameters(@Body request: SaveParametersRequest): Response<ParametersResponse>
+    suspend fun saveParameters(@Body request: SaveParametersRequest): Response<ParametersResponse>
 
     @GET("parameters")
-    fun getParameters(): Response<ParametersResponse>
+    suspend fun getParameters(): Response<ParametersResponse>
 }

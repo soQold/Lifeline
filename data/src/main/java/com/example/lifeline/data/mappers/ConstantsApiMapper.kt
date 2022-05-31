@@ -11,9 +11,9 @@ import com.example.lifeline.domain.entities.constants.Sleep
 import com.example.lifeline.domain.entities.constants.Temperature
 
 class ConstantsApiMapper{
-    fun pressureRemoteToLocalList(response: PressureResponse): List<Pressure>{
+    fun pressureRemoteToLocalList(response: List<PressureResponse>): List<Pressure>{
         val result = mutableListOf<Pressure>()
-        for(item in response.data){
+        for(item in response){
             result.add(
                 Pressure(item.userId, item.date, item.valueSystolic, item.valueDiastolic)
             )
@@ -21,9 +21,9 @@ class ConstantsApiMapper{
         return result
     }
 
-    fun pulseRemoteToLocalList(response: PulseResponse): List<Pulse>{
+    fun pulseRemoteToLocalList(response: List<PulseResponse>): List<Pulse>{
         val result = mutableListOf<Pulse>()
-        for(item in response.data){
+        for(item in response){
             result.add(
                 Pulse(item.userId, item.date, item.value)
             )
@@ -31,9 +31,9 @@ class ConstantsApiMapper{
         return result
     }
 
-    fun temperatureRemoteToLocalList(response: TemperatureResponse): List<Temperature>{
+    fun temperatureRemoteToLocalList(response: List<TemperatureResponse>): List<Temperature>{
         val result = mutableListOf<Temperature>()
-        for(item in response.data){
+        for(item in response){
             result.add(
                 Temperature(item.userId, item.date, item.value)
             )
@@ -41,9 +41,9 @@ class ConstantsApiMapper{
         return result
     }
 
-    fun sleepRemoteToLocalList(response: SleepResponse): List<Sleep>{
+    fun sleepRemoteToLocalList(response: List<SleepResponse>): List<Sleep>{
         val result = mutableListOf<Sleep>()
-        for(item in response.data){
+        for(item in response){
             result.add(
                 Sleep(item.userId, item.date, item.value)
             )

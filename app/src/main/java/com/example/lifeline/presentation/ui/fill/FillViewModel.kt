@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.lifeline.services.CurrentUserService
 import com.example.lifeline.services.SaveConstantsService
 import com.example.lifeline.services.TokenService
+import com.example.lifeline.utils.DateFormatter
 import com.example.lifeline.utils.StringTransformer
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -42,7 +43,7 @@ class FillViewModel(
             saveConstantsService.savePulse(
                 token!!,
                 currentUserService.currentUser.value!!.id!!,
-                calendar.time.toString(),
+                DateFormatter.format(calendar),
                 pulse
             )
         }
@@ -57,7 +58,7 @@ class FillViewModel(
             saveConstantsService.savePressure(
                 token!!,
                 currentUserService.currentUser.value!!.id!!,
-                calendar.time.toString(),
+                DateFormatter.format(calendar),
                 pressure.first,
                 pressure.second
             )
@@ -73,7 +74,7 @@ class FillViewModel(
             saveConstantsService.saveTemperature(
                 token!!,
                 currentUserService.currentUser.value!!.id!!,
-                calendar.time.toString(),
+                DateFormatter.format(calendar),
                 temperature
             )
         }
@@ -87,7 +88,7 @@ class FillViewModel(
             saveConstantsService.saveSleep(
                 token!!,
                 currentUserService.currentUser.value!!.id!!,
-                calendar.time.toString(),
+                DateFormatter.format(calendar),
                 sleep
             )
         }

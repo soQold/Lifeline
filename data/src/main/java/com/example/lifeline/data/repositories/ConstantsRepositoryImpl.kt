@@ -17,16 +17,17 @@ import com.example.lifeline.domain.entities.constants.Temperature
 import com.example.lifeline.domain.repositories.ConstantsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.http.Path
 
 class ConstantsRepositoryImpl(
     networkModule: NetworkModule,
     private val mapper: ConstantsApiMapper
 ) : ConstantsRepository {
     private val api = networkModule.createConstantsApi(DataConstants.baseConstantsUrl)
-    override suspend  fun getPulse(token: String): LifelineResult<List<Pulse>> {
+    override suspend  fun getPulse(token: String, userId: Long): LifelineResult<List<Pulse>> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getPulse(token)
+                val response = api.getPulse(token, userId)
 
                 if (response.isSuccessful)
                     LifelineResult.Success(mapper.pulseRemoteToLocalList(response.body()!!))
@@ -60,10 +61,10 @@ class ConstantsRepositoryImpl(
         }
     }
 
-    override suspend  fun getPressure(token: String): LifelineResult<List<Pressure>> {
+    override suspend  fun getPressure(token: String, userId: Long): LifelineResult<List<Pressure>> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getPressure(token)
+                val response = api.getPressure(token, userId)
 
                 if (response.isSuccessful)
                     LifelineResult.Success(mapper.pressureRemoteToLocalList(response.body()!!))
@@ -98,10 +99,10 @@ class ConstantsRepositoryImpl(
         }
     }
 
-    override suspend  fun getTemperature(token: String): LifelineResult<List<Temperature>> {
+    override suspend  fun getTemperature(token: String, userId: Long): LifelineResult<List<Temperature>> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getTemperature(token)
+                val response = api.getTemperature(token, userId)
 
                 if (response.isSuccessful)
                     LifelineResult.Success(mapper.temperatureRemoteToLocalList(response.body()!!))
@@ -135,10 +136,10 @@ class ConstantsRepositoryImpl(
         }
     }
 
-    override suspend fun getSleep(token: String): LifelineResult<List<Sleep>> {
+    override suspend fun getSleep(token: String, userId: Long): LifelineResult<List<Sleep>> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getSleep(token)
+                val response = api.getSleep(token, userId)
 
                 if (response.isSuccessful)
                     LifelineResult.Success(mapper.sleepRemoteToLocalList(response.body()!!))

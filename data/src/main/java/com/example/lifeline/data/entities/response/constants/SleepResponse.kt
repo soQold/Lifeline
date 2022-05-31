@@ -1,11 +1,12 @@
 package com.example.lifeline.data.entities.response.constants
 
+import com.google.gson.annotations.SerializedName
+
 data class SleepResponse(
-    val data: List<SingleSleepResponse>
-){
-    data class SingleSleepResponse(
-        val userId: Long,
-        val date: String,
-        val value: Int
-    )
-}
+    @SerializedName("user_id")
+    val userId: Long,
+    @SerializedName("date_time")
+    val date: String,
+    @SerializedName("sleep_time")
+    val value: Int
+)

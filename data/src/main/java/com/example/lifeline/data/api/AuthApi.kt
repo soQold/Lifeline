@@ -8,7 +8,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-//FIXME make endpoints
+
 interface AuthApi {
     @POST("login")
     suspend fun signIn(@Body request: SignInRequest): Response<SignInResponse>
