@@ -21,18 +21,18 @@ interface ConstantsApi {
     @GET("pressure/{id}")
     suspend fun getPressure(@Header("Authorization") token: String, @Path("id") userId: Long): Response<List<PressureResponse>>
 
-    @PUT("pressure")
+    @POST("pressure")
     suspend fun savePressure(@Header("Authorization") token: String, @Body request: PressureRequest):Response<Void>
 
     @GET("temperature/{id}")
     suspend fun getTemperature(@Header("Authorization") token: String, @Path("id") userId: Long): Response<List<TemperatureResponse>>
 
-    @PUT("temperature")
+    @POST("temperature")
     suspend fun saveTemperature(@Header("Authorization") token: String, @Body request: TemperatureRequest):Response<Void>
 
     @GET("sleep/{id}")
     suspend fun getSleep(@Header("Authorization") token: String, @Path("id") userId: Long): Response<List<SleepResponse>>
 
-    @PUT("sleep")
+    @POST("sleep")
     suspend fun saveSleep(@Header("Authorization") token: String, @Body request: SleepRequest):Response<Void>
 }

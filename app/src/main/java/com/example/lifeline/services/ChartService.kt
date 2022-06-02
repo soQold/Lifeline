@@ -34,10 +34,25 @@ class ChartService {
         chart.xAxis.textSize = chartData.textSizeX
         chart.xAxis.textColor = chartData.textColorX
         chart.xAxis.setDrawAxisLine(chartData.isDrawAxisLineX)
-        chart.xAxis.setDrawGridLines(chartData.isGridEnabled)
+        chart.xAxis.setDrawGridLines(chartData.isDrawGridLinesX)
         chart.xAxis.setCenterAxisLabels(chartData.isCenterAxisLabelsX)
-        chart.xAxis.labelRotationAngle = chartData.labelRotationAngle
+        chart.xAxis.labelRotationAngle = chartData.labelRotationAngleX
         chart.xAxis.valueFormatter = chartData.valueFormatterX
+
+        chart.axisLeft.setPosition(chartData.positionY)
+        chart.axisLeft.textSize = chartData.textSizeY
+        chart.axisLeft.textColor = chartData.textColorY
+        chart.axisLeft.setDrawGridLines(chartData.isDrawAxisLineY)
+        chart.axisLeft.setDrawGridLines(chartData.isDrawGridLinesY)
+        chart.axisLeft.setCenterAxisLabels(chartData.isCenterAxisLabelsY)
+        chart.axisLeft.valueFormatter = chartData.valueFormatterY
+        chart.axisRight.setPosition(chartData.positionY)
+        chart.axisRight.textSize = chartData.textSizeY
+        chart.axisRight.textColor = chartData.textColorY
+        chart.axisRight.setDrawGridLines(chartData.isDrawAxisLineY)
+        chart.axisRight.setDrawGridLines(chartData.isDrawGridLinesY)
+        chart.axisRight.setCenterAxisLabels(chartData.isCenterAxisLabelsY)
+        chart.axisRight.valueFormatter = chartData.valueFormatterY
     }
 
     private fun setupLineDataSet(chartData: ChartData, isSystolicPressure: Boolean): LineDataSet {
@@ -92,7 +107,7 @@ class ChartService {
                     result.add(Entry(convertDateToFloat(value.date), value.value.toFloat()))
                 }
                 is Sleep -> {
-                    result.add(Entry(convertDateToFloat(value.date), value.value.toFloat()))
+                    result.add(Entry(convertDateToFloat(value.date), convertSleepToFloat(value.value)))
                 }
             }
         }
@@ -101,4 +116,6 @@ class ChartService {
 
     private fun convertDateToFloat(value: String) =
         DateFormatter.parse(value).timeInMillis.toFloat()
+
+    private fun convertSleepToFloat(value: String) = DateFormatter.parseSleep(value).timeInMillis.toFloat()
 }

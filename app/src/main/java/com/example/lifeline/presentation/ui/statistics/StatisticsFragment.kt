@@ -10,6 +10,7 @@ import com.example.lifeline.databinding.StatisticsFragmentBinding
 import com.example.lifeline.entities.ChartData
 import com.example.lifeline.presentation.BaseFragment
 import com.example.lifeline.utils.ChartDateFormatter
+import com.example.lifeline.utils.ChartSleepFormatter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class StatisticsFragment : BaseFragment() {
@@ -60,6 +61,31 @@ class StatisticsFragment : BaseFragment() {
                         title = getString(R.string.pulse),
                         lineTitle = getString(R.string.pulse),
                         valueFormatterX =  ChartDateFormatter(),
+                        values = it
+                    )
+                )
+            }
+
+            viewModel.temperatureLiveData.observe(viewLifecycleOwner){
+                viewModel.setupChart(
+                    chartTemperature,
+                    ChartData(
+                        title = getString(R.string.temperature),
+                        lineTitle = getString(R.string.temperature),
+                        valueFormatterX =  ChartDateFormatter(),
+                        values = it
+                    )
+                )
+            }
+
+            viewModel.sleepLiveData.observe(viewLifecycleOwner){
+                viewModel.setupChart(
+                    chartSleep,
+                    ChartData(
+                        title = getString(R.string.sleep_time),
+                        lineTitle = getString(R.string.sleep_time),
+                        valueFormatterX =  ChartDateFormatter(),
+                        valueFormatterY = ChartSleepFormatter(),
                         values = it
                     )
                 )

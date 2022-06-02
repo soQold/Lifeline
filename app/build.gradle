@@ -56,4 +56,5 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     implementation "com.github.PhilJay:MPAndroidChart:$charts_version"
+    implementation "com.github.RedMadRobot:input-mask-android:$mask_version"
 }

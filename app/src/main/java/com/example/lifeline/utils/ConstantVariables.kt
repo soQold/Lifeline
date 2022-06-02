@@ -10,5 +10,8 @@ class ConstantVariables {
 
         const val minPressureDia = 0
         const val maxPressureDia = 300
+
+        const val minTemperature = 34.0
+        const val maxTemperature = 44.0
     }
 }

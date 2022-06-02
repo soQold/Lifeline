@@ -91,6 +91,7 @@ class StatisticsViewModel(
     fun mockData() {
         createPressureData()
         createPulseData()
+        createTemperatureData()
     }
 
     private fun createPressureData() {
@@ -128,7 +129,29 @@ class StatisticsViewModel(
         _pulseLiveData.postValue(pulseList)
     }
 
+    private fun createTemperatureData(){
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.DATE, -51)
+        val temperatureList = mutableListOf<Temperature>()
+        for (i in 0..50) {
+            temperatureList.add(
+                Temperature(
+                    currentUserService.currentUser.value!!.id!!,
+                    DateFormatter.format(calendar),
+                    rand(35.0, 39.9)
+                )
+            )
+            calendar.add(Calendar.DATE, 1)
+        }
+        _temperatureLiveData.postValue(temperatureList)
+    }
+
     private fun rand(start: Int, end: Int): Int {
         return (Math.random() * (end - start + 1)).toInt() + start
     }
+
+    private fun rand(start: Double, end: Double): Double {
+        return (Math.random() * (end - start + 1))
+    }
+
 }

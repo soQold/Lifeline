@@ -1,6 +1,7 @@
 package com.example.lifeline.utils
 
 import androidx.core.text.isDigitsOnly
+import java.lang.Exception
 
 //FIXME make validations
 class StringValidator {
@@ -51,6 +52,31 @@ class StringValidator {
 
         fun validatePulse(value: String): Boolean {
             if (value.isNotEmpty() && value.isDigitsOnly() && value.toInt() > ConstantVariables.minPulse && value.toInt() < ConstantVariables.maxPulse)
+                return true
+            return false
+        }
+
+        fun validateTemperature(value: String): Boolean{
+            if(value.isNotEmpty()){
+                try {
+                    if(value.toDouble() > ConstantVariables.minTemperature && value.toDouble() < ConstantVariables.maxTemperature)
+                        return true
+                }
+                catch (e: Exception){
+                    return false
+                }
+            }
+            return false
+        }
+
+        fun validateHours(value: String): Boolean{
+            if(value.isNotEmpty() && value.toInt() >= 0 && value.toInt() < 24)
+                return true
+            return false
+        }
+
+        fun validateMinutes(value: String): Boolean{
+            if(value.isNotEmpty() && value.toInt() >= 0 && value.toInt() < 60)
                 return true
             return false
         }

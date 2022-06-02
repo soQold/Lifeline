@@ -42,7 +42,7 @@ class SaveConstantsService(
     }
 
     suspend fun saveSleep(
-        token: String, userId: Long, date: String, value: Int
+        token: String, userId: Long, date: String, value: String
     ): LifelineResult<Boolean> {
         return withContext(Dispatchers.IO) { saveSleepUseCase.invoke(token, userId, date, value) }
     }

@@ -37,7 +37,17 @@ data class ChartData(
     val isDrawGridLinesX: Boolean = true,
     val isCenterAxisLabelsX: Boolean = true,
     val valueFormatterX: ValueFormatter? = null,
-    val labelRotationAngle: Float = 45f,
+    val labelRotationAngleX: Float = 45f,
+
+    // YAxis settings
+    val positionY: YAxis.YAxisLabelPosition = YAxis.YAxisLabelPosition.OUTSIDE_CHART,
+    val textSizeY: Float = 10f,
+    val textColorY: Int = Color.BLACK,
+    val isDrawAxisLineY: Boolean = true,
+    val isDrawGridLinesY: Boolean = true,
+    val isCenterAxisLabelsY: Boolean = true,
+    val valueFormatterY: ValueFormatter? = null,
+    val labelRotationAngleY: Float = 45f,
 
     // SetSettings
     val lineWidth: Float = 1f,

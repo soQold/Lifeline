@@ -33,6 +33,16 @@
                 tools:text="@string/pulse_example" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <TextView
+            android:id="@+id/tvPressureLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pressure"
+            app:layout_constraintTop_toBottomOf="@id/etLayoutPulse"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/margin_std"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etLayoutPressureSys"
             android:layout_width="0dp"
@@ -41,7 +51,7 @@
             android:layout_marginHorizontal="@dimen/margin_std"
             app:layout_constraintEnd_toStartOf="@id/tvSlash"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etLayoutPulse">
+            app:layout_constraintTop_toBottomOf="@id/tvPressureLabel">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPressureSys"
@@ -72,7 +82,7 @@
             android:layout_marginHorizontal="@dimen/margin_std"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvSlash"
-            app:layout_constraintTop_toBottomOf="@id/etLayoutPulse">
+            app:layout_constraintTop_toBottomOf="@id/tvPressureLabel">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPressureDia"
@@ -102,22 +112,53 @@
                 tools:text="@string/temperature_example" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/tvSleepLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sleep_time"
+            app:layout_constraintTop_toBottomOf="@id/etLayoutTemperature"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/margin_std"/>
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etLayoutSleep"
-            android:layout_width="match_parent"
+            android:id="@+id/etLayoutHours"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_std"
             android:layout_marginHorizontal="@dimen/margin_std"
-            app:layout_constraintTop_toBottomOf="@id/etLayoutTemperature">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/etLayoutMinutes"
+            app:layout_constraintTop_toBottomOf="@id/tvSleepLabel">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSleep"
+                android:id="@+id/etHours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/sleep_time"
+                android:hint="@string/hours"
                 android:inputType="numberSigned"
                 android:maxLines="1"
-                tools:text="@string/sleep_time_example" />
+                tools:text="@string/hours_example" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLayoutMinutes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_std"
+            android:layout_marginHorizontal="@dimen/margin_std"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/etLayoutHours"
+            app:layout_constraintTop_toBottomOf="@id/tvSleepLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMinutes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/minutes"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                tools:text="@string/minutes_example" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

@@ -26,10 +26,12 @@
     <string name="pulse">Пульс</string>
     <string name="temperature">Температура</string>
     <string name="pressure">Давление</string>
-    <string name="pressureSys">Сис. Давление</string>
-    <string name="pressureDia">Диа. Давление</string>
+    <string name="pressureSys">Систолическое</string>
+    <string name="pressureDia">Диастолические</string>
     <string name="sleep_time">Время сна</string>
     <string name="confirm">Подтвердить</string>
+    <string name="hours">Часы</string>
+    <string name="minutes">Минуты</string>
 
 <!--    status strings-->
     <string name="status_username_invalid">Некорректная почта или логин</string>
@@ -41,6 +43,11 @@
     <string name="value_error_pulse">Значение должно состоять только из цифр и не превышать 300</string>
     <string name="value_error_pressure_sys">Значение должно состоять только из цифр и не превышать 300</string>
     <string name="value_error_pressure_dia">Значение должно состоять только из цифр и не превышать 300</string>
+    <string name="value_error_hours">Значение должно состоять из цифр и не превышать 24</string>
+    <string name="value_error_minutes">Значение должно состоять из цифр и не превышать 60</string>
+
+<!--    formats-->
+    <string name="format_decimal_2_digits">[00].[0]</string>
 <!--    examples-->
     <string name="email_example">example@gmail.com</string>
     <string name="password_example">password123</string>
@@ -57,4 +64,6 @@
     <string name="sys_pressure_example">60</string>
     <string name="dia_pressure_example">120</string>
     <string name="sleep_time_example">8ч. 30мин.</string>
+    <string name="hours_example">18</string>
+    <string name="minutes_example">35</string>
 </resources>

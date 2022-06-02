@@ -8,6 +8,7 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.databinding.DataBindingUtil
 import com.example.lifeline.R
 import com.example.lifeline.databinding.FillFragmentBinding
+import com.example.lifeline.extensions.installDecimal2DigitsMask
 import com.example.lifeline.presentation.BaseFragment
 import com.example.lifeline.utils.StringValidator
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -35,12 +36,18 @@ class FillFragment : BaseFragment() {
             etPressureDia.doAfterTextChanged {
                 viewModel.pressureDiaLiveData.postValue(it.toString())
             }
-            etSleep.doAfterTextChanged {
-                viewModel.sleepLiveData.postValue(it.toString())
+            etHours.doAfterTextChanged {
+                viewModel.hoursLiveData.postValue(it.toString())
+            }
+            etMinutes.doAfterTextChanged {
+                viewModel.minutesLiveData.postValue(it.toString())
             }
             etTemperature.doAfterTextChanged {
                 viewModel.temperatureLiveData.postValue(it.toString())
             }
+
+            etTemperature.installDecimal2DigitsMask()
+
             btnConfirm.setOnClickListener { viewModel.saveData() }
 
 
@@ -71,6 +78,26 @@ class FillFragment : BaseFragment() {
                 }
                 else{
                     etLayoutPressureDia.isErrorEnabled = false
+                }
+            }
+
+            viewModel.hoursLiveData.observe(viewLifecycleOwner){
+                if(it.isNotEmpty() && !StringValidator.validateHours(it)){
+                    etLayoutHours.isErrorEnabled = true
+                    etLayoutHours.error = getString(R.string.value_error_hours)
+                }
+                else{
+                    etLayoutHours.isErrorEnabled = false
+                }
+            }
+
+            viewModel.minutesLiveData.observe(viewLifecycleOwner){
+                if(it.isNotEmpty() && !StringValidator.validateMinutes(it)){
+                    etLayoutMinutes.isErrorEnabled = true
+                    etLayoutMinutes.error = getString(R.string.value_error_minutes)
+                }
+                else{
+                    etLayoutMinutes.isErrorEnabled = false
                 }
             }
         }

@@ -21,5 +21,5 @@ interface ConstantsRepository {
 
     suspend fun getSleep(token: String, userId: Long): LifelineResult<List<Sleep>>
 
-    suspend fun saveSleep(token: String, userId: Long, date: String, value: Int): LifelineResult<Boolean>
+    suspend fun saveSleep(token: String, userId: Long, date: String, value: String): LifelineResult<Boolean>
 }

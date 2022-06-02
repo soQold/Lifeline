@@ -8,5 +8,5 @@ data class SleepResponse(
     @SerializedName("date_time")
     val date: String,
     @SerializedName("sleep_time")
-    val value: Int
+    val value: String
 )

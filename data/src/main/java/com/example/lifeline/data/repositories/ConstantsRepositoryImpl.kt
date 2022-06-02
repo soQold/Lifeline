@@ -156,7 +156,7 @@ class ConstantsRepositoryImpl(
         token: String,
         userId: Long,
         date: String,
-        value: Int
+        value: String
     ): LifelineResult<Boolean> {
         return withContext(Dispatchers.IO) {
             try {

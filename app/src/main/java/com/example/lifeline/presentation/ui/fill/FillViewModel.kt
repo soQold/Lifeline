@@ -22,16 +22,16 @@ class FillViewModel(
     val pressureSysLiveData = MutableLiveData("")
     val pressureDiaLiveData = MutableLiveData("")
     val temperatureLiveData = MutableLiveData("")
-    val sleepLiveData = MutableLiveData("")
+    val hoursLiveData = MutableLiveData("")
+    val minutesLiveData = MutableLiveData("")
 
     fun saveData() {
         Timber.i("Saving data with token: $token")
         if (token != null) {
             savePressure()
             savePulse()
-            //FIXME return when it will be ready
-//            saveTemperature()
-//            saveSleep()
+            saveTemperature()
+            saveSleep()
         }
     }
 
@@ -82,9 +82,9 @@ class FillViewModel(
 
     private fun saveSleep() {
         viewModelScope.launch {
-            Timber.i("Saving sleep: ${sleepLiveData.value}")
+            Timber.i("Saving sleep: ${hoursLiveData.value}:${minutesLiveData.value}")
             val calendar = Calendar.getInstance()
-            val sleep = StringTransformer.transformSleep(sleepLiveData.value!!) ?: return@launch
+            val sleep = StringTransformer.transformSleep(hoursLiveData.value!!, minutesLiveData.value!!) ?: return@launch
             saveConstantsService.saveSleep(
                 token!!,
                 currentUserService.currentUser.value!!.id!!,
