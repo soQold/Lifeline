@@ -38,9 +38,9 @@ class StatisticsFragment : BaseFragment() {
                 ChartData(title = getString(R.string.pulse), lineTitle = getString(R.string.pulse))
             )
 
-            viewModel.getData()
+//            viewModel.getData()
             //TEST ONLY
-//            viewModel.mockData()
+            viewModel.mockData()
 
             viewModel.pressureLiveData.observe(viewLifecycleOwner){
                 viewModel.setupChart(

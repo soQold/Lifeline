@@ -13,8 +13,14 @@ class DateFormatter {
         @SuppressLint("SimpleDateFormat")
         private val sleepFormatter = SimpleDateFormat("HH:mm")
 
+        private val dateOnlyFormatter = SimpleDateFormat("dd/MM/yy")
+
         fun format(value: Calendar): String {
             return formatter.format(value.time)
+        }
+
+        fun formatDateOnly(value: Calendar): String {
+            return dateOnlyFormatter.format(value.time)
         }
 
         fun formatSleep(value: Calendar): String {
@@ -35,6 +41,15 @@ class DateFormatter {
             if(formatted != null) {
                 calendar.set(Calendar.HOUR, formatted.hours)
                 calendar.set(Calendar.MINUTE, formatted.minutes)
+            }
+            return calendar
+        }
+
+        fun parseDateOnly(value: String): Calendar {
+            val calendar = Calendar.getInstance()
+            val formatted = dateOnlyFormatter.parse(value)
+            if(formatted != null) {
+                calendar.time = formatted
             }
             return calendar
         }

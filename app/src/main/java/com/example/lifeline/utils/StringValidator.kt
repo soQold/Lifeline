@@ -70,13 +70,13 @@ class StringValidator {
         }
 
         fun validateHours(value: String): Boolean{
-            if(value.isNotEmpty() && value.toInt() >= 0 && value.toInt() < 24)
+            if(value.isNotEmpty() && value.toInt() >= ConstantVariables.minHours && value.toInt() < ConstantVariables.maxHours)
                 return true
             return false
         }
 
         fun validateMinutes(value: String): Boolean{
-            if(value.isNotEmpty() && value.toInt() >= 0 && value.toInt() < 60)
+            if(value.isNotEmpty() && value.toInt() >= ConstantVariables.minMinutes && value.toInt() < ConstantVariables.maxMinutes)
                 return true
             return false
         }

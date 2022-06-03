@@ -13,5 +13,11 @@ class ConstantVariables {
 
         const val minTemperature = 34.0
         const val maxTemperature = 44.0
+
+        const val maxHours = 24
+        const val minHours = 0
+
+        const val maxMinutes = 60
+        const val minMinutes = 0
     }
 }

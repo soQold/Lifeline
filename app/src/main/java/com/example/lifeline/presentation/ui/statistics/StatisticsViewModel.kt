@@ -92,6 +92,7 @@ class StatisticsViewModel(
         createPressureData()
         createPulseData()
         createTemperatureData()
+        createSleepData()
     }
 
     private fun createPressureData() {
@@ -146,12 +147,38 @@ class StatisticsViewModel(
         _temperatureLiveData.postValue(temperatureList)
     }
 
+    private fun createSleepData(){
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.DATE, -51)
+        val sleepList = mutableListOf<Sleep>()
+        for (i in 0..50) {
+            sleepList.add(
+                Sleep(
+                    currentUserService.currentUser.value!!.id!!,
+                    DateFormatter.format(calendar),
+                    randSleep()
+                )
+            )
+            calendar.add(Calendar.DATE, 1)
+        }
+        _sleepLiveData.postValue(sleepList)
+    }
+
     private fun rand(start: Int, end: Int): Int {
         return (Math.random() * (end - start + 1)).toInt() + start
     }
 
     private fun rand(start: Double, end: Double): Double {
-        return (Math.random() * (end - start + 1))
+        return (Math.random() * (end - start + 1)) + start
     }
 
+    private fun randSleep(): String{
+        val hours = rand(1, 10)
+        val minutes = rand(0, 59)
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR, hours)
+        calendar.set(Calendar.MINUTE, minutes)
+
+        return DateFormatter.format(calendar)
+    }
 }

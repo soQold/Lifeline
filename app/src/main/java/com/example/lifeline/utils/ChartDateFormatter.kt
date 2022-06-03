@@ -12,6 +12,6 @@ class ChartDateFormatter : ValueFormatter() {
     override fun getAxisLabel(value: Float, axis: AxisBase): String {
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = value.toLong()
-        return DateFormatter.format(calendar)
+        return DateFormatter.formatDateOnly(calendar)
     }
 }
