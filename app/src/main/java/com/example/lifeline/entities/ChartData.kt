@@ -1,6 +1,7 @@
 package com.example.lifeline.entities
 
 import android.graphics.Color
+import com.example.lifeline.data.utils.DataConstants
 import com.example.lifeline.domain.entities.constants.BioConstant
 import com.example.lifeline.utils.ChartDateFormatter
 import com.github.mikephil.charting.components.XAxis
@@ -28,6 +29,8 @@ data class ChartData(
     val isPinchZoom: Boolean = true,
     val backgroundColor: Int = Color.WHITE,
     val xAnimateSpeed: Int = 1500,
+    val isDescriptionEnabled:Boolean = false,
+    val desrcriptionText: String = DataConstants.emptyString,
 
     // XAxis settings
     val positionX: XAxis.XAxisPosition = XAxis.XAxisPosition.BOTTOM,

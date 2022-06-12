@@ -10,18 +10,21 @@ import com.example.lifeline.R
 import com.example.lifeline.databinding.FillFragmentBinding
 import com.example.lifeline.extensions.installDecimal2DigitsMask
 import com.example.lifeline.presentation.BaseFragment
+import com.example.lifeline.presentation.ui.DefaultViewModel
 import com.example.lifeline.utils.StringValidator
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class FillFragment : BaseFragment() {
     private lateinit var binding: FillFragmentBinding
     private val viewModel: FillViewModel by sharedViewModel()
+    private val defaultViewModel: DefaultViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        defaultViewModel.title.postValue(getString(R.string.fill_data))
         binding = DataBindingUtil.inflate(inflater, R.layout.fill_fragment, container, false)
         binding.run {
             lifecycleOwner = viewLifecycleOwner

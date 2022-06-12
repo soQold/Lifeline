@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/default_activity.xml" value="0.17" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/default_activity.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/diary_fragment.xml" value="0.35280797101449274" />
         <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/fill_fragment.xml" value="0.35280797101449274" />
         <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/login_activity.xml" value="0.35280797101449274" />
@@ -16,6 +16,8 @@
         <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/sogn_up_personal_fragment.xml" value="0.35280797101449274" />
         <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/splash_activity.xml" value="0.35280797101449274" />
         <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/statistics_fragment.xml" value="0.2" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/toolbar.xml" value="0.35280797101449274" />
+        <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/toolbar_fragment.xml" value="0.35280797101449274" />
         <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/layout/user_activity_fragment.xml" value="0.35280797101449274" />
         <entry key="..\:/AndroidProjects/Lifeline/app/src/main/res/menu/default_menu.xml" value="0.36666666666666664" />
       </map>

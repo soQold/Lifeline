@@ -29,6 +29,8 @@ class ChartService {
         chart.setPinchZoom(chartData.isPinchZoom)
         chart.setBackgroundColor(chartData.backgroundColor)
         chart.animateX(chartData.xAnimateSpeed)
+        chart.description.isEnabled = chartData.isDescriptionEnabled
+        chart.description.text = chartData.desrcriptionText
 
         chart.xAxis.position = chartData.positionX
         chart.xAxis.textSize = chartData.textSizeX

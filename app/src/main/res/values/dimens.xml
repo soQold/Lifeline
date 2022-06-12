@@ -10,4 +10,8 @@
     <dimen name="progress_h">4dp</dimen>
 
     <dimen name="chart_height">200dp</dimen>
+
+    <dimen name="toolbar_height">60dp</dimen>
+    <dimen name="toolbar_btn_size">40dp</dimen>
+    <dimen name="toolbar_btn_padding">8dp</dimen>
 </resources>

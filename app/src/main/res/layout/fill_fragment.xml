@@ -38,10 +38,10 @@
             android:id="@+id/tvPressureLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_std"
             android:text="@string/pressure"
-            app:layout_constraintTop_toBottomOf="@id/etLayoutPulse"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="@dimen/margin_std"/>
+            app:layout_constraintTop_toBottomOf="@id/etLayoutPulse" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etLayoutPressureSys"
@@ -116,10 +116,10 @@
             android:id="@+id/tvSleepLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_std"
             android:text="@string/sleep_time"
-            app:layout_constraintTop_toBottomOf="@id/etLayoutTemperature"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="@dimen/margin_std"/>
+            app:layout_constraintTop_toBottomOf="@id/etLayoutTemperature" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etLayoutHours"
@@ -127,8 +127,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_std"
             android:layout_marginHorizontal="@dimen/margin_std"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/etLayoutMinutes"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSleepLabel">
 
             <com.google.android.material.textfield.TextInputEditText

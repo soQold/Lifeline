@@ -9,6 +9,7 @@ import com.example.lifeline.R
 import com.example.lifeline.databinding.StatisticsFragmentBinding
 import com.example.lifeline.entities.ChartData
 import com.example.lifeline.presentation.BaseFragment
+import com.example.lifeline.presentation.ui.DefaultViewModel
 import com.example.lifeline.utils.ChartDateFormatter
 import com.example.lifeline.utils.ChartSleepFormatter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -16,12 +17,14 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 class StatisticsFragment : BaseFragment() {
     private lateinit var binding: StatisticsFragmentBinding
     private val viewModel: StatisticsViewModel by sharedViewModel()
+    private val defaultViewModel: DefaultViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        defaultViewModel.title.postValue(getString(R.string.statistics))
         binding = DataBindingUtil.inflate(inflater, R.layout.statistics_fragment, container, false)
         binding.run {
             lifecycleOwner = viewLifecycleOwner

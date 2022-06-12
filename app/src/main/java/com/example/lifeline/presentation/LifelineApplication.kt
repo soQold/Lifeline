@@ -19,6 +19,7 @@ import com.example.lifeline.domain.usecases.users.GetParametersUseCase
 import com.example.lifeline.domain.usecases.users.GetPersonalUseCase
 import com.example.lifeline.domain.usecases.users.SaveParametersUseCase
 import com.example.lifeline.domain.usecases.users.SavePersonalUseCase
+import com.example.lifeline.presentation.ui.DefaultViewModel
 import com.example.lifeline.presentation.ui.fill.FillViewModel
 import com.example.lifeline.presentation.ui.sign_in.SignInViewModel
 import com.example.lifeline.presentation.ui.sign_up.SignUpViewModel
@@ -46,7 +47,8 @@ class LifelineApplication : Application() {
         viewModel { SignInViewModel(get(), get(), get()) }
         viewModel { SignUpViewModel(get(), get(), get()) }
         viewModel { FillViewModel(get(), get(), get()) }
-        viewModel { StatisticsViewModel(get(), get(), get(), get())}
+        viewModel { StatisticsViewModel(get(), get(), get(), get()) }
+        viewModel { DefaultViewModel() }
 
         // API
         single { NetworkModule() }
@@ -88,7 +90,7 @@ class LifelineApplication : Application() {
         single { UsersService(get(), get(), get(), get()) }
         single { GetConstantsService(get(), get(), get(), get()) }
         single { SaveConstantsService(get(), get(), get(), get()) }
-        single { ChartService()}
+        single { ChartService() }
     }
 
     private fun getTokenSharedPreferences() = getSharedPreferences("token", Context.MODE_PRIVATE)
