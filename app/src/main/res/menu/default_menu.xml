@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item android:id="@+id/itemMain" android:title="@string/main_page"/>
+    <item android:id="@+id/itemProfile" android:title="@string/cabinet"/>
+    <item android:id="@+id/itemFill" android:title="@string/fill_data"/>
+    <item android:id="@+id/itemStatistics" android:title="@string/statistics"/>
+    <item android:id="@+id/itemActivity" android:title="@string/user_activity"/>
 </menu>

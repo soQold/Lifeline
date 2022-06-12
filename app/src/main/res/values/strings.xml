@@ -32,7 +32,11 @@
     <string name="confirm">Подтвердить</string>
     <string name="hours">Часы</string>
     <string name="minutes">Минуты</string>
+    <string name="main_page">Главная страница</string>
+    <string name="cabinet">Личный кабинет</string>
 
+<!--    info strings-->
+    <string name="development_message">В разработке</string>
 <!--    status strings-->
     <string name="status_username_invalid">Некорректная почта или логин</string>
     <string name="status_password_invalid">Некорректный пароль</string>
