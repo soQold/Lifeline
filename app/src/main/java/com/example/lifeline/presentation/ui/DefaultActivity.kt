@@ -15,7 +15,6 @@ class DefaultActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        defaultViewModel.title.postValue(getString(R.string.main_page))
         binding = DataBindingUtil.setContentView(this, R.layout.default_activity)
         binding.lifecycleOwner = this
         binding.model = defaultViewModel
